@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="row p-3" style="background: #e9e9e9; border: 1px solid #e3e3e3;">
+
+      <form [formGroup]="signupForm">
+
+        <div class="col-md-12">
+
+          <p class="lead">Selecione o Quiz para ativar</p>
+          <div class="form-check" *ngFor="let quiz of response">
+            <input class="form-check-input" type="radio" formControlName="selectedQuiz" name="selectedQuiz" id="selectedQuiz" value="{{ quiz.id }}">
+            <label class="form-check-label" for="exampleRadios1">
+              {{ quiz.titulo }}
+            </label>
+          </div>
+
+        </div>
+        <div class="col-md-12">
+          <button id="btnSelectQuiz" (click)="setQuiz()" [disabled]="!signupForm.valid" type="button" class="btn btn-primary">Ativar Quiz</button>
+        </div>
+
+        <div class="col-md-12">
+          <!-- <p>Form value {{ signupForm.value | json }} </p>
+          <p>Form status {{ signupForm.status | json}} </p> -->
+        </div>
+
+      </form>
+
+
+    </div>
+  </div>
+</div>
